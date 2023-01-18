@@ -31,7 +31,7 @@ body{
   font-family: 'Rubik', sans-serif;
   line-height: 1.7;
   background: black;
-  position: relative;
+  position: absolute ;
 }
 
 nav{
