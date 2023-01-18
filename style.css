@@ -144,7 +144,7 @@ h1{
 }
 
 .left-content ul li::before{
-  position: absolute;
+  position: relative;
   content:'';
   background-image: url(/images/arrow.svg);
   background-repeat: no-repeat;
