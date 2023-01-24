@@ -8,152 +8,44 @@ h1 {
 }
 
 @media screen and (max-width: 1024px) {
-  #vantajs {
-  max-height: 100vh;
+#vantajs {
+  width: 100%;
+  height: 100vh;
 }
+
+h1 {
+  color: #fff !important;
+}
+
+@media screen and (max-width: 1024px) {
+  #vantajs {
+    max-height: 100vh;
+  }
   
   h1 {
     font-size: 1rem;
   }
-  
-}
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap');
-*, *::after, *::before{
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: inherit;
-  box-sizing: inherit;
 }
 
-body{
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  font-family: 'Rubik', sans-serif;
-  line-height: 1.7;
-  background: black;
-  position: relative;
+@media screen and (max-width: 768px) {
+  /* Add styles for mobile devices here */
+  h1 {
+    font-size: 2rem;
+  }
+  .menu ul li {
+    padding: 10px 50px;
+    font-size: 14px;
+  }
+  .container {
+    flex-wrap: wrap;
+  }
+  .left-content, .right-content {
+    width: 100%;
+  }
 }
 
-nav{
-  max-width: 1600px;
-  height: auto;
-  margin: auto;
-  padding: 5px 0px;
-  display: flex;
-}
-.logo{
-  width: 40%;
-}
-.menu{
-  width: 60%;
-  text-align: right;
-  display: flex;
-  color: white;
-}
+/* Rest of CSS */
 
-.menu ul{
-  margin-left: auto;
-  list-style: none;
-  display: flex;
-}
-
-.menu ul li{
-  padding: 10px 90px;
-  font-size: 16px;
-  font-weight: bold;
-  transition: all 0.6s ease;
-}
-
-.menu ul li:hover{
-  color:#000000;
-}1
-
-.btn{
-  padding:10px 20px;
-  background: #000000;
-  color: #FFFFFF;
-  box-shadow: inset 3px 3px 20px #2CDAFF99, 0px 5px 10px #1A7AF699;
-  border-radius: 3px;
-  line-height: 1.7;
-  text-decoration: none;
-  font-weight: bold;
-  margin: 5px;
-  transition: all 0.6s ease;
-}
-
-.btn:hover{
-  background: #FFFFFF;
-  color:#b5b5b5;
-  box-shadow: inset 3px 3px 20px #2CDAFF99, inset -3px -3px 10px #1A7AF699;
-}
-
-
-.container{
-  width: 100%;
-  height:100%;
-  max-width:1600px;
-  margin:auto;
-  display: flex;
-}
-
-.container::before{
-  position: absolute;
-  background-color: #F8FAFE;
-  content: '';
-  width: 70%;
-  height: 110%;
-  left: 0;
-  top: 0;
-  z-index: -1;
-}
-
-.left-content, .right-content{
-  width: 50%;
-  padding:100px 0px;
-}
-
-.right-content{
-  background-image: url(/images/hero-bg.png);
-  background-repeat: no-repeat;
-  background-size: 80%;
-  background-position: center;
-  position: relative;
-}
-
-h1{
-  font-size:60px;
-  line-height: 75px;
-  width: 95%;
-  padding-bottom: 50px;
-}
-.fancy-text{
-  background: -webkit-linear-gradient(0deg, #004BE9, #2CDAFF);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.left-content ul{
-  padding:0px 14px;
-  list-style: none;
-}
-.left-content ul li{
-  font-size:18px;
-  line-height:30px;
-  padding:5px 0px;
-  position: relative;
-  padding-left: 15px;
-}
-
-.left-content ul li::before{
-  position: absolute;
-  content:'';
-  background-image: url(/images/arrow.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 10px;
-  height: 10px;
-  left: -10px;
-  top: 15px;
-}
 
 
 .step-container{
