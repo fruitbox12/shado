@@ -43,7 +43,7 @@
             /* Get user metadata including email */
             const userMetadata = await magic.user.getMetadata();
             html = `
-              <h1>Current user: ${userMetadata.email}</h1>
+              <a>Current user: ${userMetadata.email}</a>
               <button onclick="handleLogout()">Logout</button>
             `;
           }
@@ -81,7 +81,7 @@
                 <li>Blog</li>
                 <li>Community</li> 
                 <li>Docs</li>  
-                <li id="a">Start</li>  
+                <li id="a">Login</li>  
             </ul><section class="game-section">
   <div class="owl-carousel custom-carousel owl-theme">
     <div class="item active">
