@@ -5,10 +5,76 @@
   <title>shadws</title>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
 <link rel='stylesheet' href='https://yandex.st/highlightjs/8.0/styles/vs.min.css'><link rel="stylesheet" href="./style.css">
+   <script src="https://auth.magic.link/sdk"></script>
+    <script>
+      /* 2️⃣ Initialize Magic Instance */
+      let magic = new Magic("pk_live_1D26A67074B9E0FC");
 
+      /* 3️⃣ Implement Render Function */
+      const render = async () => {
+        let html = '';
+
+        if (window.location.pathname === "/callback") {
+          try {
+            /* Complete the "authentication callback" */
+            await magic.auth.loginWithCredential();
+
+            /* Get user metadata including email */
+            const userMetadata = await magic.user.getMetadata();
+
+            html = `
+              <h1>Current user: ${userMetadata.email}</h1>
+              <button onclick="handleLogout()">Logout</button>
+            `;
+          } catch {
+            window.location.href = window.location.origin;
+          }
+        } else {
+          const isLoggedIn = await magic.user.isLoggedIn();
+
+          /* Show login form if user is not logged in */
+          html = `
+            <h1>Please sign up or login</h1>
+            <form onsubmit="handleLogin(event)">
+              <input type="email" name="email" required="required" placeholder="Enter your email" />
+              <button type="submit">Send</button>
+            </form>
+          `;
+
+          if (isLoggedIn) {
+            /* Get user metadata including email */
+            const userMetadata = await magic.user.getMetadata();
+            html = `
+              <h1>Current user: ${userMetadata.email}</h1>
+              <button onclick="handleLogout()">Logout</button>
+            `;
+          }
+        }
+
+        document.getElementById("a").innerHTML = html;
+      };
+
+      /* 4️⃣ Implement Login Handler */
+      const handleLogin = async (e) => {
+        e.preventDefault();
+        const email = new FormData(e.target).get("email");
+        const redirectURI = `${window.location.origin}/callback`;
+        if (email) {
+          /* One-liner login 🤯 */
+          await magic.auth.loginWithMagicLink({ email, redirectURI });
+          render();
+        }
+      };
+
+      /* 5️⃣ Implement Logout Handler */
+      const handleLogout = async () => {
+        await magic.user.logout();
+        render();
+      };
+    </script>
 </head>
-<body>
-<!-- partial:index.partial.html -->
+ <body onload="render()">
+    <div id="app"><!-- partial:index.partial.html -->
 <div id="vantajs">  
 <div class="menu">
             <ul>                      <li></li>
@@ -18,7 +84,7 @@
                 <li>Blog</li>
                 <li>Community</li> 
                 <li>Docs</li>  
-                <li>Start</li>  
+                <li id="a">Start</li>  
             </ul><section class="game-section">
   <div class="owl-carousel custom-carousel owl-theme">
     <div class="item active">
@@ -42,6 +108,7 @@
 <script src='https://yandex.st/highlightjs/8.0/highlight.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r123/three.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.21/vanta.globe.min.js'></script><script  src="./script.js"></script>
+    </div>
 
 </body>
 </html>
