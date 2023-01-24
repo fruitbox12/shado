@@ -31,7 +31,7 @@ body{
   font-family: 'Rubik', sans-serif;
   line-height: 1.7;
   background: black;
-  position: absolute ;
+  position: relative;
 }
 
 nav{
@@ -144,7 +144,7 @@ h1{
 }
 
 .left-content ul li::before{
-  position: relative;
+  position: absolute;
   content:'';
   background-image: url(/images/arrow.svg);
   background-repeat: no-repeat;
@@ -840,3 +840,5 @@ p {
 .apexcharts-legend-marker{
 	margin-right: 6px !important;
 }
+	
+	
